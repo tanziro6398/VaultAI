@@ -5,6 +5,11 @@ import "./index.css";
 function App() {
   const [activeSection, setActiveSection] = useState("vault");
 
+  const handleLogout = () => {
+    alert("Logged out successfully!");
+    // actual logout logic yahan aayega
+  };
+
   const renderContent = () => {
     switch (activeSection) {
       case "vault":
@@ -13,7 +18,12 @@ function App() {
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-semibold">Vault</h2>
               <div className="flex items-center gap-4">
-                <button className="text-blue-600 font-medium hover:underline">Log out</button>
+                <button
+                  onClick={handleLogout}
+                  className="text-blue-600 font-medium hover:underline"
+                >
+                  Log out
+                </button>
                 <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
                   <img src="/profile.png" alt="Profile" className="w-6 h-6" />
                 </div>
@@ -27,7 +37,6 @@ function App() {
                 <span>Status</span>
               </div>
 
-              {/* Vault Items */}
               <VaultItem
                 logo="https://static.vecteezy.com/system/resources/previews/013/948/544/non_2x/gmail-logo-on-transparent-white-background-free-vector.jpg"
                 name="Gmail"
@@ -103,7 +112,6 @@ function App() {
   return (
     <div className="bg-[#f5f7f9] min-h-screen">
       <div className="w-[80%] h-[80vh] mx-auto my-10 bg-white rounded-xl shadow-2xl flex">
-        {/* Sidebar */}
         <div className="w-1/4 p-6 border-r border-gray-200">
           <div className="flex flex-col gap-4 h-full">
             <div className="flex items-center gap-2 text-black text-2xl">
@@ -123,7 +131,6 @@ function App() {
           </div>
         </div>
 
-        {/* Main Content */}
         <div className="w-3/4 p-6 overflow-y-auto">{renderContent()}</div>
       </div>
     </div>
